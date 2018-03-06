@@ -1,7 +1,7 @@
-/* Dit stukje code zorgt voor de schaduw en doorzichtigheid van de frames */
-header, nav, footer, #important, #populair {
+/* Dit stukje code zorgt voor de schaduw en doorzichtigheid van de frames - Momenteel gedeeltelijk uitgeschakeld */
+header, footer, #important, #populair {
   /* box-shadow: 7px 7px rgba(0, 0, 0, 0.5); */
-  opacity: 0.8;
+  opacity: 0.4;
 }
 
 body {
@@ -12,6 +12,7 @@ body {
 
 nav {
   text-align: center;
+  opacity: 0.8;
 }
 
 /* Dit is voor de <div> waar alle andere <div>s zich in bevinden */
@@ -24,7 +25,7 @@ nav {
 header {
   width: 100%;
   height: 75px;
-  background-color: red;
+  background-color: #528ae5;
 }
 
 nav {
@@ -36,7 +37,7 @@ nav {
 footer {
   width: 100%;
   height: 75px;
-  background-color: purple;
+  background-color: #528ae5;
 }
 
 /* Dit is de CSS voor die mooie navigatie knoppen (Copyright Dennis ten Hoove.inc 2017 :P) boven aan de pagina*/
@@ -63,11 +64,11 @@ footer {
  #important {
    width: 100%;
    height: 400px;
-   background-color: blue;
+   background-color: #528ae5;
  }
 
  #populair {
    width: 100%;
    height: 450px;
-   background-color: orange;
+   background-color: #528ae5;
  }
