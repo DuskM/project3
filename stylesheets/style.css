@@ -9,6 +9,7 @@ body {
   padding-top: 12px;
   background-size: auto;
   background-attachment: fixed;
+  min-width: 1350px;
 }
 
 nav {
@@ -26,7 +27,7 @@ nav {
 header {
   width: 100%;
   height: 75px;
-  background-color: rgba(83, 139, 230, 0.6); /* Gewoon een note: Hier wordt de Opacity gedaan */
+  background-color: rgba(83, 139, 230, 0.6); /* Gewoon een note: Hier wordt de Opacity van de frames gedaan */
 }
 
 nav {
@@ -43,7 +44,7 @@ footer {
 
  #important {
    width: 100%;
-   height: 400px;
+   height: 366px;
    background-color: rgba(83, 139, 230, 0.6);
  }
 
