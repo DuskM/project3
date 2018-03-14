@@ -1,6 +1,12 @@
+/* Moest er in van Mark, idk wat het doet */
 * {
   padding: 0px;
   margin: 0px;
+}
+
+/* Dit stukje code zorgt voor de schaduw rondom de (idk hoe je dat noemt lol) */
+header, nav, #important, #populair {
+  box-shadow: 7px 7px rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -9,7 +15,8 @@ body {
   background-attachment: fixed;
 }
 
-#kop {
+/* Dit is voor de <div> waar alle andere <div>s zich in bevinden */
+#main {
   width: 80%;
   height: 100%;
 }
@@ -26,6 +33,7 @@ nav {
   background-color: #143a77;
 }
 
+/* Dit is de CSS voor die mooie navigatie knoppen boven aan de pagina*/
 .nav_button {
 	text-align: center;
 	border: none;
@@ -39,6 +47,7 @@ nav {
   height: 20px;
 }
 
+/* Dit is voor een kleine animatie bij hoover op de navigatie knoppen */
 .nav_button:hover {
   transition: 0.5s;
   background-color: #528ae5;
