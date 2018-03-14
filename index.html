@@ -10,81 +10,23 @@
 </head>
 
 <body background="images/wallpaper.jpg">
-  <div id="main">
+  <div id="hoofd">
     <header>
       <img id="forum_banner" src="">  <!-- Hier de link voor de forumbanner invullen -->
     </header>
     <nav>  <!-- Dit zijn de knoppen voor het navigatie lint  -->
-      <a class="nav_button" href="pages/katten.html">Kittens!</a>
-      <a class="nav_button" href="pages/katten.html">Placeholder</a>
-      <a class="nav_button" href="pages/katten.html">Placeholder</a>
-	    <a class="nav_button" href="pages/katten.html">Placeholder</a>
-      <a class="nav_button" href="pages/katten.html">Placeholder</a>
-      <a class="nav_button" href="pages/katten.html">Placeholder</a>
+      <a class="nav_button" onclick="document.querySelector('#main').src = 'pages/main.html'">Home</a>
+			<a class="nav_button" onclick="document.querySelector('#main').src = 'pages/kittens.html'">Kitten!</a>
+			<a class="nav_button" onclick="document.querySelector('#main').src = 'pages/placeholder.html'">Placeholder</a>
+			<a class="nav_button" onclick="document.querySelector('#main').src = 'pages/placeholder.html'">Placeholder</a>
+			<a class="nav_button" onclick="document.querySelector('#main').src = 'pages/placeholder.html'">User</a>
+			<a class="nav_button" onclick="document.querySelector('#main').src = 'pages/about.html'">About</a>
     </nav>
-    <br> <!-- Het zou mooi zijn als deze <br> tags kunnen worden vervangen met een border in CSS. Hoeft niet, mag. -->
-      <div>
-        <div id="important">
-          <div id="container_1"> <!-- Deze containers zorgen er voor dat we die <div>'s zo mooi onder elkaar kunnen zetten, elke container bevat 2 <div>'s die naast elkaar staan -->
-            <div id="important_Content_1">
-              Placeholder 1
-            </div>
-            <div id="important_Content_2">
-              Placeholder 2
-            </div>
-          </div>
 
-          <div id="container_2">
-            <div id="important_Content_3">
-              Placeholder 3
-            </div>
-            <div id="important_Content_4">
-              Placeholder 4
-            </div>
-          </div>
+    <iframe id="main" frameBorder="0" src="pages/main.html">
+      <!-- Hier wordt de pagina ingeladen. -->
+    </iframe>
 
-          <div id="container_3">
-            <div id="important_Content_5">
-              Placeholder 5
-            </div>
-            <div id="important_Content_6">
-              Placeholder 6
-            </div>
-          </div>
-        </div>
-      </div>
-    <br> <!-- <br> tag #2 -->
-    <div>
-      <div id="populair">
-        <div id="container_4"> <!-- Deze containers zorgen er voor dat we die <div>'s zo mooi onder elkaar kunnen zetten, elke container bevat 2 <div>'s die naast elkaar staan -->
-          <div id="populair_Content_1">
-            Placeholder 1
-          </div>
-          <div id="populair_Content_2">
-            Placeholder 2
-          </div>
-        </div>
-
-        <div id="container_5">
-          <div id="populair_Content_3">
-            Placeholder 3
-          </div>
-          <div id="populair_Content_4">
-            Placeholder 4
-          </div>
-        </div>
-
-        <div id="container_6">
-          <div id="populair_Content_5">
-            Placeholder 5
-          </div>
-          <div id="populair_Content_6">
-            Placeholder 6
-          </div>
-      </div>
-    </div>
-    <br> <!-- <br> tag #3 & #4 -->
-    <br>
     <footer>
       Footer placeholder
     </footer>

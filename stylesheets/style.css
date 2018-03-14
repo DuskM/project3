@@ -9,7 +9,7 @@ body {
   padding-top: 12px;
   background-size: auto;
   background-attachment: fixed;
-  min-width: 1350px;
+  min-width: 1200px;
 }
 
 nav {
@@ -18,9 +18,9 @@ nav {
 }
 
 /* Dit is voor de <div> waar alle andere <div>s zich in bevinden */
-#main {
+#hoofd {
   width: 80%;
-  height: 100%;
+  height: auto;
   margin: auto;
 }
 
@@ -40,4 +40,11 @@ footer {
   width: 100%;
   height: 75px;
   background-color: rgba(83, 139, 230, 0.6);
+}
+
+#main {
+  width: 100%;
+  height: 800px;
+  padding-bottom: 25px;
+  padding-top: 25px;
 }
