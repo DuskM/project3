@@ -52,3 +52,7 @@ footer {
   padding-bottom: 25px;
   padding-top: 25px;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
