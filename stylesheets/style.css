@@ -9,7 +9,7 @@ body {
   padding-top: 12px;
   background-size: auto;
   background-attachment: fixed;
-  min-width: 1200px;
+  min-width: 800px;
 }
 
 nav {
@@ -17,7 +17,7 @@ nav {
   opacity: 0.8;
 }
 
-/* Dit is voor de <div> waar alle andere <div>s zich in bevinden */
+/* Dit is voor de <div> waar alle andere <div>s zich in bevinden, ik weet dat ik hem een kut naam heb gegeven. */
 #hoofd {
   width: 80%;
   height: auto;
@@ -26,18 +26,22 @@ nav {
 
 header {
   width: 100%;
+  border-radius: 5px 5px 0px 0px;
   height: 75px;
   background-color: rgba(83, 139, 230, 0.6); /* Gewoon een note: Hier wordt de Opacity van de frames gedaan */
 }
 
+/* Dit is de CSS voor het mooie navigatie lint met die knoppen  */
 nav {
   width: 100%;
+  border-radius: 0px 0px 5px 5px;
   height: 40px;
   background-color: rgba(20, 58, 119, 0.6);
 }
 
 footer {
   width: 100%;
+  border-radius: 5px;
   height: 75px;
   background-color: rgba(83, 139, 230, 0.6);
 }
@@ -47,4 +51,8 @@ footer {
   height: 800px;
   padding-bottom: 25px;
   padding-top: 25px;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
