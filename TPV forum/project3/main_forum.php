@@ -1,14 +1,6 @@
 <?php
 
-$host="localhost"; // Host name
-$username="root"; // Mysql username
-$password=""; // Mysql password
-$db_name="project3"; // Database name
-$tbl_name="forum_question"; // Table name
-
-// Connect to server and select databse.
-$con = mysqli_connect("$host", "$username", "$password");
-mysqli_select_db($con, $db_name)or die("cannot select DB");
+include_once './env.php';
 
 $sql="SELECT * FROM $tbl_name ORDER BY id DESC";
 // OREDER BY id DESC is order result by descending
