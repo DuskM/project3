@@ -1,14 +1,6 @@
 <?php
 
-$host="localhost"; // Host name
-$username="root"; // Mysql username
-$password=""; // Mysql password
-$db_name="project3"; // Database name
-$tbl_name="forum_answer"; // Table name
-
-// Connect to server and select databse.
-$con = mysqli_connect("$host", "$username", "$password");
-mysqli_select_db($con, $db_name)or die("cannot select DB");
+include_once './env.php';
 
 // Get value of id that sent from hidden field
 $id=$_POST['id'];
