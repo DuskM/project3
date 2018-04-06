@@ -23,7 +23,7 @@ if (isset($_GET['message'])) {
     <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/style_buttons.css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/style_important.css">
-    <title>PHP and MySql</title>
+    <title>Kittens Forum</title>
 </head>
 
 <body>
@@ -47,12 +47,12 @@ General discussion about kittens.<br>
 <form method="get" action="form.php">
     <p>User:
         <label for="gebruiker"></label>
-        <input type="text" name="gebruiker" id="gebruiker" />
+        <input type="text" style="background-color: rgba(20, 58, 119, 0.6)" name="gebruiker" id="gebruiker" />
         <br />
     </p>
     <p>Message: <br />
         <label for="message"></label>
-        <textarea name="message" id="message" cols="45" rows="5"></textarea>
+        <textarea name="message" style="background-color: rgba(20, 58, 119, 0.6)" id="message" cols="45" rows="5"></textarea>
     </p>
     <p>
         <input type="submit" name="submit" id="submit" value="Post message" />
