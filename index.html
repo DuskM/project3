@@ -9,6 +9,39 @@
     <title>Placeholder</title>
   </head>
 
+  <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+  <script type='text/javascript'>
+      $(function(){
+
+          var iFrames = $('iframe');
+
+      	function iResize() {
+
+      		for (var i = 0, j = iFrames.length; i < j; i++) {
+      		  iFrames[i].style.height = iFrames[i].contentWindow.document.body.offsetHeight + 'px';}
+      	    }
+
+          	if ($.browser.safari || $.browser.opera) {
+
+          	   iFrames.load(function(){
+          	       setTimeout(iResize, 0);
+                 });
+
+          	   for (var i = 0, j = iFrames.length; i < j; i++) {
+          			var iSource = iFrames[i].src;
+          			iFrames[i].src = '';
+          			iFrames[i].src = iSource;
+                 }
+
+          	} else {
+          	   iFrames.load(function() {
+          	       this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
+          	   });
+          	}
+
+          });
+  </script>
+
   <body background="images/wallpaper.jpg">
     <div id="hoofd">
       <header>
@@ -16,14 +49,14 @@
       </header>
       <nav>  <!-- Dit zijn de knoppen voor het navigatie lint  -->
         <a class="nav_button" onclick="document.querySelector('#main').src = 'pages/main.html'">Home</a>
-        <a class="nav_button" onclick="document.querySelector('#main').src = 'pages/kittens.html'">Kittens!</a>
+        <a class="nav_button" onclick="document.querySelector('#main').src = 'pages/kittens.html'">TEST</a>
         <a class="nav_button" onclick="document.querySelector('#main').src = 'pages/form.php'">Forum</a>
         <a class="nav_button" onclick="document.querySelector('#main').src = 'pages/nonMain/placeHolder.html'">Placeholder</a>
         <a class="nav_button" onclick="document.querySelector('#main').src = 'pages/nonMain/placeHolder.html'">Placeholder</a>
         <a class="nav_button" onclick="document.querySelector('#main').src = 'pages/nonMain/placeHolder.html'">Placeholder</a>
       </nav>
 
-      <iframe id="main" frameBorder="0" src="pages/main.html">
+      <iframe class="iframe" id="main" width="100%" frameBorder="0" scrolling="no" src="pages/nonMain/placeHolder.html">
         <!-- Hier wordt de pagina ingeladen. -->
       </iframe>
       <footer>

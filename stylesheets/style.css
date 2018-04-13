@@ -40,23 +40,13 @@ nav {
   background-color: rgba(20, 58, 119, 0.6);
 }
 
+iframe {
+  
+}
+
 footer {
   width: 100%;
   border-radius: 5px;
   height: 75px;
   background-color: rgba(83, 139, 230, 0.6);
-}
-
-
-/* Dit is voor de iframe waar de pagina's in worden geladen - Meaning it's important, afblijven please. */
-#main {
-  width: 100%;
-  height: 800px;
-  padding-bottom: 25px;
-  padding-top: 25px;
-}
-
-/* Dit verwijdert de scrollbar van de main pagina (In Google Chrome) - maar je kan nog wel scrollen dus geen zorgen */
-::-webkit-scrollbar {
-    display: none;
 }
