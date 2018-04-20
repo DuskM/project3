@@ -50,7 +50,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 </div>
 
-<p><a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a></p>
+<p><a href="uitloggen.php" class="btn btn-danger">Sign Out of Your Account</a></p>
 
 </body>
 
