@@ -1,30 +1,33 @@
 
 
-<?php
 
-// Initialize the session
+    <style type="text/css">
 
-session_start();
+        body{ font: 14px sans-serif; text-align: center; }
 
-
-
-// Unset all of the session variables
-
-$_SESSION = array();
+    </style>
 
 
 
-// Destroy the session.
 
-session_destroy();
+<div class="page-header">
 
+    <h3>U bent uitgelogt.</h3>
 
+</div>
 
-// Redirect to login page
+<p><a href="index.php?pag=inloggen" class="btn btn-danger">Log in</a></p>
 
-header("location: login.php");
+    <?php
+    // Initialize the session
+    session_start();
+    // Unset all of the session variables
+    $_SESSION = array();
+    // Destroy the session.
+    session_destroy();
 
-exit;
+    exit;
 
-?>
+    ?>
+
 

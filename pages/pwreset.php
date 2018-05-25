@@ -75,13 +75,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 
-    <style type="text/css">
+<style type="text/css">
 
-        body{ font: 14px sans-serif; }
+    body{ font: 14px sans-serif; }
 
-        .wrapper{ width: 350px; padding: 20px; }
+    .wrapper{ width: 350px; padding: 20px; }
 
-    </style>
+</style>
 
 
 
@@ -109,7 +109,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <input type="submit" class="btn btn-primary" value="Login">
         </div>
         <p>Heb je geen account? <a href="index.php?pag=registreren">Registreren</a>.</p>
-        <p>Wachtwoord vergeten? <a href="index.php?pag=reset">Reset</a>.</p>
     </form>
 </div>
-
