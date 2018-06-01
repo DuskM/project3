@@ -16,7 +16,7 @@ if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
 else {
     echo "<div class='page-header'>
 
-    <h3>Hi, <b>"; echo htmlspecialchars($_SESSION['email']); "</b>. Welcome to our site.</h3>
+    <h3>Hi, <b>"; echo htmlspecialchars($_SESSION['username']); "</b>. Welcome to our site.</h3>
 
 </div>
 

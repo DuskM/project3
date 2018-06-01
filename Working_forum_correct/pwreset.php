@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Check if password is empty
     if(empty(trim($_POST['password']))){
-        $password_err = 'Please enter your password.';
+        $password_err = 'Please enter your new password.';
     } else{
         $password = trim($_POST['password']);
     }
@@ -37,37 +37,54 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_store_result($stmt);
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $email, $hashed_password, $username);
-                    if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
-                            /* Password is correct, so start a new session and
-                            save the username to the session */
-                            session_start();
-                            $_SESSION['email'] = $email;
-                            $_SESSION['username'] = $username;
-                            header("location: index.php?pag=welcome.php");
-                        } else{
-                            // Display an error message if password is not valid
-                            $password_err = 'The password you entered was not valid.';
+                    // wachtwoord checken
+                    if(empty(trim($_POST['password']))){
+                        $password_err = '<span style="color:red;">Voer een wachtwoord in.</span>';
+                    } elseif(strlen(trim($_POST['password'])) < 6){
+                        $password_err = '<span style="color:red;">Wachtwoord moet minstens 6 tekens hebben.</span>';
+                    } else{
+                        $password = trim($_POST['password']);
+                    }
+                    // wachtwoord checken
+                    if(empty(trim($_POST["confirm_password"]))){
+                        $confirm_password_err = '<span style="color:red;">Bevestig het wachtwoord.</span>';
+                    } else{
+                        $confirm_password = trim($_POST['confirm_password']);
+                        if($password != $confirm_password){
+                            $confirm_password_err = '<span style="color:red;">Wachtwoord komt niet overeen.</span>';
                         }
                     }
-                } else{
-                    // Display an error message if username doesn't exist
-                    $email_err = 'No account found with that username.';
+
+
+
+
+                    // Check input
+                    if(empty($username_err) && empty($password_err) && empty($confirm_password_err) &&empty($email_err)){
+                        // Prepare an insert statement
+                        $sql = "UPDATE users (password) VALUES (?, ?, ?) WHERE ";
+                        if($stmt = mysqli_prepare($link, $sql)){
+                            // Variabelen binden
+                            mysqli_stmt_bind_param($stmt, "sss", $param_email, $param_username, $param_password);
+                            // Set parameters
+                            $param_email = $email;
+                            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+                            $param_username = $username;
+
+
+                            if(mysqli_stmt_execute($stmt)){
+                                // Naar login pagina sturen
+                                header("location: index.php?pag=5");
+                            } else{
+                                echo "Something went wrong. Please try again later.";
+                            }
+                        }
+
+
+
+                    }
+                    // connectie sluiten
+                    mysqli_close($link);
                 }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-        }
-
-        // Sluit statement
-        mysqli_stmt_close($stmt);
-    }
-    // Sluit connectie
-    mysqli_close($link);
-
-}
 
 ?>
 

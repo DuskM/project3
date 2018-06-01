@@ -19,7 +19,7 @@ switch ($paggepost){
         include ("kittens.php");
         break;
     case "forum";
-        include ("form.php");
+        include ("forum.php");
         break;
     case "registereren";
         include ("register.php");
@@ -33,11 +33,6 @@ switch ($paggepost){
     case "uitloggen";
         include ("uitloggen.php");
         break;
-    case "uitgelogt";
-        include ("uitgelogt.php");
-        break;
-
-
 }
 
 switch ($paggekozen){
@@ -49,7 +44,7 @@ switch ($paggekozen){
         include ("kittens.php");
         break;
     case "forum";
-        include ("form.php");
+        include ("forum.php");
         break;
     case "registreren";
         include ("register.php");
