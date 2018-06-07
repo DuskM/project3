@@ -1,5 +1,6 @@
 <?php
 
+
 session_start();
 
 if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
@@ -13,12 +14,12 @@ else {
         echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     }
 
-    if (isset($_GET['message'])) {
+    if (isset($_POST['message'])) {
 
-        $message = $mysqli->real_escape_string($_GET['message']);
+        $message = $mysqli->real_escape_string($_POST['message']);
         $date = date('Y-m-d H:i:s');
 
-        $sql = "INSERT INTO topic(message, date) VALUES('$message','$date')";
+        $sql = "INSERT INTO topic(id, message, date, username) VALUES(0, '$message','$date', '{$_SESSION['username']}')";
         $mysqli->query($sql);
     }
     echo "<h2>Kittens</h2>";
@@ -29,14 +30,14 @@ else {
     $result = $mysqli->query($sql);
 
     while ($row = $result->fetch_assoc()) {
-        echo  htmlspecialchars($_SESSION['username']) . ',  ' . $row['date'] . ' <br />';
+        echo  $row['username'] . '  ' . $row['date'] . ' <br />';
         echo $row['message'] . '<br />';
         echo '------------------------ <br />';
     }
     echo "General discussion about kittens.<br>
 ------------------------------------------
 
-<form method='get' action='index.php?pag=forum'>
+<form method='post' action='index.php'>
     <p>Message: <br>
         <label for='message'></label>
         <textarea name='message' style='background-color: rgba(20, 58, 119, 0.6)'' id='message' cols='45' rows='5'></textarea>
@@ -44,6 +45,7 @@ else {
     <p>
         <input type='submit' name='submit' id='submit' value='Post message' />
     </p>
+    <input type='hidden' id='pag' name='pag' value='forum'/>
 </form>
 <br>";
 }
