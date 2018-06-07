@@ -7,7 +7,7 @@ require_once 'config.php';
             <?php $query="SELECT id,date FROM topic ORDER BY date";
             $result = mysqli_query($link, $query);
             $row = mysqli_fetch_array($result);
-                echo "bbbbbb".  $row['id'] . $row['date'];
+                echo $row['id'] . "<br>" . $row['date'];
                 mysqli_close($link);
                 die();
 

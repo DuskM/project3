@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2018 at 01:46 PM
+-- Generation Time: Jun 07, 2018 at 02:42 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -31,15 +31,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `topic` (
   `id` int(11) NOT NULL,
   `message` text NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL,
+  `username` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `topic`
 --
 
-INSERT INTO `topic` (`id`, `message`, `date`) VALUES
-(0, 'nee', '2018-06-07 13:44:20');
+INSERT INTO `topic` (`id`, `message`, `date`, `username`) VALUES
+(1, 'nee', '2018-06-07 14:22:32', ''),
+(2, 'YES', '2018-06-07 14:40:53', 'nee'),
+(3, 'YES\r\n', '2018-06-07 14:41:00', 'nee'),
+(4, 'omg', '2018-06-07 14:41:30', 'me');
 
 -- --------------------------------------------------------
 
@@ -84,6 +88,11 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `topic`
+--
+ALTER TABLE `topic`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
