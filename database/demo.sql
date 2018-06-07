@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2018 at 11:19 AM
+-- Generation Time: Jun 07, 2018 at 01:46 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -25,11 +25,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `topic`
+--
+
+CREATE TABLE `topic` (
+  `id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `topic`
+--
+
+INSERT INTO `topic` (`id`, `message`, `date`) VALUES
+(0, 'nee', '2018-06-07 13:44:20');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP
@@ -39,19 +59,26 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'me', '$2y$10$ZBUHOkwaHKZ.K2Co78GyjORIYFSZ47TmNdtMiNUkpnc6T8vd7XML.', '2018-04-13 11:04:09');
+INSERT INTO `users` (`id`, `email`, `username`, `password`, `created_at`) VALUES
+(1, 'me@live.nl', 'me', '$2y$10$6pXif8lbiKH2.WS4UrQV4eqkxwmxXpcuUOY4FyccJUvJw2bIKs0bu', '2018-05-08 11:35:49'),
+(3, 'nee@hotmail.com', 'nee', '$2y$10$i.bYHXSglFLNlQ29q3vHEebIU9gbl/lzCjjaXxaKuxlRxQtHpPRKC', '2018-05-24 16:34:21');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `topic`
+--
+ALTER TABLE `topic`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -61,7 +88,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
