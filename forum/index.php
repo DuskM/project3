@@ -27,6 +27,9 @@ switch ($paggepost){
     case "placeholder";
         include ("welcome.php");
         break;
+    case "registreren";
+        include ("register.php");
+        break;
     case "uitloggen";
         include ("uitloggen.php");
         break;
@@ -51,6 +54,9 @@ switch ($paggekozen){
         break;
     case "profiel";
         include ("welcome.php");
+        break;
+    case "registreren";
+        include ("register.php");
         break;
     default;
         include ("main.php");
