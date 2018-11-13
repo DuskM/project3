@@ -57,7 +57,7 @@ elseif($_SESSION['user_type'] == "ADMIN") { ?>
             Title: Tactics <br>
             Unit builds, map strategies, etc.<br><br>
             Last post:
-            <?php $query="SELECT username,date FROM topic ORDER BY date DESC";
+            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
             $result = mysqli_query($link, $query);
             $row = mysqli_fetch_array($result);
             echo $row['username'] . "<br>" . $row['date'];
@@ -68,7 +68,7 @@ elseif($_SESSION['user_type'] == "ADMIN") { ?>
             Title: Player versus Player <br>
             Discussions about Aether Raids, Arena and Arena Assault.<br><br>
             Last post:
-            <?php $query="SELECT username,date FROM topic ORDER BY date DESC";
+            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
             $result = mysqli_query($link, $query);
             $row = mysqli_fetch_array($result);
             echo $row['username'] . "<br>" . $row['date'];
@@ -79,7 +79,7 @@ elseif($_SESSION['user_type'] == "ADMIN") { ?>
             Title: Multimaps <br>
             Discussions about Chain Challenges, Squad Assauult and Blessed Garden.<br><br>
             Last post:
-            <?php $query="SELECT username,date FROM topic ORDER BY date DESC";
+            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
             $result = mysqli_query($link, $query);
             $row = mysqli_fetch_array($result);
             echo $row['username'] . "<br>" . $row['date'];
@@ -90,7 +90,7 @@ elseif($_SESSION['user_type'] == "ADMIN") { ?>
             Title: Events <br>
             Discussions about Voting Gaunlet, Tap Battle, Tempest Trails Bound and Grand Hero Battles and Bond Forging.<br><br>
             Last post:
-            <?php $query="SELECT username,date FROM topic ORDER BY date DESC";
+            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
             $result = mysqli_query($link, $query);
             $row = mysqli_fetch_array($result);
             echo $row['username'] . "<br>" . $row['date'];
@@ -101,7 +101,7 @@ elseif($_SESSION['user_type'] == "ADMIN") { ?>
             Title: Story <br>
             Story progression discussion [SPOILERS].<br><br>
             Last post:
-            <?php $query="SELECT username,date FROM topic ORDER BY date DESC";
+            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
             $result = mysqli_query($link, $query);
             $row = mysqli_fetch_array($result);
             echo $row['username'] . "<br>" . $row['date'];
@@ -112,7 +112,7 @@ elseif($_SESSION['user_type'] == "ADMIN") { ?>
             Title: Salt <br>
             Daily salt mining.<br><br>
             Last post:
-            <?php $query="SELECT username,date FROM topic ORDER BY date DESC";
+            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
             $result = mysqli_query($link, $query);
             $row = mysqli_fetch_array($result);
             echo $row['username'] . "<br>" . $row['date'];
