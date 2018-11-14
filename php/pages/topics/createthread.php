@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if(empty($info_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO tactics (title, description, poster, user_id, topic_id) VALUES (?,?,?,?,?)";
+        $sql = "INSERT INTO threads (title, description, poster, user_id, topic_id) VALUES (?,?,?,?,?)";
         if($stmt = mysqli_prepare($link, $sql)){
             // Variabelen binden
             mysqli_stmt_bind_param($stmt, "sssss", $param_title, $param_description, $param_poster, $param_userid, $param_topic);
@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2>Maak nieuw thread aan.</h2>
     <script src='../javascript/ckeditor/ckeditor.js'></script>
     <script src='../javascript/functiontopic.js'></script>
-    <form class="infotext2" action="index.php?pag=tacticthread" method="post">
+    <form class="infotext2" action="index.php?pag=createthread" method="post">
         <label>Titel voor thread</label><br>
         <input type="text" id="title" name="title" class="form-control" style="background-color: rgba(20, 58, 119, 0.6)"><br>
         <label><b>Vraag/discussie onderwerp.</b></label><br>

@@ -10,6 +10,7 @@ if($_SESSION['user_type'] == "ADMIN") {
     require_once('C:\xampp\htdocs\Forum\php\functions\functions.php');
 
 
+
     if(isset($_POST['save'])){
         $checkbox = $_POST['check'];
         for($i=0;$i<count($checkbox);$i++){

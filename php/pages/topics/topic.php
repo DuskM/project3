@@ -10,7 +10,7 @@ unset($_SESSION['thread']);
 <form method='post' action='index.php?pag=threads'>
     <div class="Content_1">
         <?php $id = $row["id"]; ?>
-        <a href="index.php?pag=forum" class="fill-div">
+
 
 
             <?php echo $row["id"]; ?>

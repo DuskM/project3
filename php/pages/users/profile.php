@@ -91,6 +91,7 @@ if(empty($birth_err)){
     ?>
     </div>
     <p><a href="index.php?pag=uitloggen">Uitloggen</a></p>
+    <p><a href="index.php?pag=posts">Posts</a></p>
 <div class="birth">
     <?php if(empty($_SESSION['birth'])){ ?>
         <form class="infotext" action="index.php?pag=profiel" method="post">
@@ -110,7 +111,7 @@ if(empty($birth_err)){
 
 
 
-</div>
+
 
 
 
