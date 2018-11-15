@@ -97,6 +97,18 @@ else {
     $_SESSION['thread'] = $id;
     echo $_SESSION['thread'];
     }
+    ?><br><?php
+
+    if (isset($_POST['topic'])) {
+        $id1 = $_POST['topic'];
+        $_SESSION['topic'] = $id1;
+        echo $_SESSION['topic'];
+    }
+
+
+
+
+
 
     if (isset($_POST['message'])) {
 
@@ -130,11 +142,11 @@ else {
         echo $row['message'] . '<br>';
         echo '------------------------ <br>';
     }
-    echo "Discussion about kitten food.<br>
+    echo $row['title']."<br>
 ------------------------------------------
 <script src='//cdn.ckeditor.com/4.10.0/standard/ckeditor.js'></script>
 <script src='../javascript/functiontopic.js'></script>
-<form method='post' action='index.php?pag=forum'>
+<form method='post' action='index.php?pag=replies'>
     <p>Message: <br>
         <label for='message'></label>
         <textarea name='message' style='background-color: rgba(20, 58, 119, 0.6)' id='message' cols='45' rows='5'></textarea>

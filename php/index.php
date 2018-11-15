@@ -35,11 +35,14 @@ switch ($paggepost){
     case "topic";
         include ("pages/topics/topic.php");
         break;
-    case "forum";
+    case "replies";
         include ("pages/topics/replies.php");
         break;
     case "profiel";
         include ("pages/users/profile.php");
+        break;
+    case "posts";
+        include ("pages/users/postoverview.php");
         break;
     case "inloggen";
         include ("pages/users/login.php");
@@ -74,8 +77,8 @@ switch ($paggepost){
     case "createthread";
         include ("pages/topics/createthread.php");
         break;
-    case "userposts";
-        include ("pages/users/postoverview.php");
+    case "session";
+        include ("sessions.php");
         break;
 }
 
@@ -87,10 +90,13 @@ switch ($paggekozen){
     case "profiel";
         include ("pages/users/profile.php");
         break;
+    case "posts";
+        include ("pages/users/postoverview.php");
+        break;
     case "topic";
         include ("pages/topics/topic.php");
         break;
-    case "forum";
+    case "replies";
         include ("pages/topics/replies.php");
         break;
     case "inloggen";
@@ -126,8 +132,8 @@ switch ($paggekozen){
     case "createthread";
         include ("pages/topics/createthread.php");
         break;
-    case "userposts";
-        include ("pages/users/postoverview.php");
+    case "session";
+        include ("sessions.php");
         break;
     default;
         include ("pages/main.php");

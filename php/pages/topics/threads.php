@@ -23,9 +23,9 @@ if($_SESSION['user_type'] == "ADMIN") {
         unset($_SESSION['thread']);
         ?>
         <form method='post' action='index.php?pag=threads'>
-        <form method='post' action='index.php?pag=forum'>
+        <form method='post' action='index.php?pag=replies'>
             <div class="Content_1">
-                <?php $id = $row["id"]; ?>
+
 
 
 
@@ -58,7 +58,7 @@ if($_SESSION['user_type'] == "ADMIN") {
     while ($row = mysqli_fetch_array($result)) {
         unset($_SESSION['thread']);
         ?>
-        <form method='post' action='index.php?pag=forum'>
+        <form method='post' action='index.php?pag=replies'>
             <div class="Content_1">
                 <?php $id = $row["id"]; ?>
 

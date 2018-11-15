@@ -62,6 +62,14 @@ iframe {
   margin: 0 auto;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 2px solid white;
+}
 
 footer {
   padding-left: 5px;
