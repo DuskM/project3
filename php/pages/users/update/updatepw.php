@@ -11,19 +11,19 @@ $password = $confirm_password = "";
 $password_err = $confirm_password_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty(trim($_POST['password']))){
-        $password_err = '<span style="color:red;">Voer een wachtwoord in.</span>';
+        $password_err = '<span style="color:red;">Fill in a password.</span>';
     } elseif(strlen(trim($_POST['password'])) < 6){
-        $password_err = '<span style="color:red;">Wachtwoord moet minstens 6 tekens hebben.</span>';
+        $password_err = '<span style="color:red;">Password must contain at least 6 characters.</span>';
     } else{
         $password = trim($_POST['password']);
     }
     // wachtwoord checken
     if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = '<span style="color:red;">Bevestig het wachtwoord.</span>';
+        $confirm_password_err = '<span style="color:red;">Confirm password.</span>';
     } else{
         $confirm_password = trim($_POST['confirm_password']);
         if($password != $confirm_password){
-            $confirm_password_err = '<span style="color:red;">Wachtwoord komt niet overeen.</span>';
+            $confirm_password_err = '<span style="color:red;">Passwords do not match.</span>';
         }
     }
 
@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             if(mysqli_stmt_execute($stmt)){
                 ?>
                 <script type="text/javascript">
-                    alert('Wachtwoord geupdate');
+                    alert('Password updated');
                     window.location.href='index.php?pag=profiel';
                 </script>
                 <?php
@@ -64,18 +64,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src='../javascript/functiontopic.js'></script>
     <form class="infotext2" action="index.php?pag=pupdate" method="post">
     <div class="form-group <br><?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-        <label>Wachtwoord</label>
+        <label>Password</label>
         <br>
         <input type="password" name="password" id="password" class="form-control" style="background-color: rgba(20, 58, 119, 0.6)" value="<?php echo $password; ?>">
         <span class="help-block"><br><?php echo $password_err; ?></span>
     </div>
 
     <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-        <label>Bevestig wachtwoord</label>
+        <label>Confirm password</label>
         <br>
         <input type="password" name="confirm_password" id="confirm_password" class="form-control" style="background-color: rgba(20, 58, 119, 0.6)" value="<?php echo $confirm_password; ?>">
         <span class="help-block"><br><?php echo $confirm_password_err; ?></span>
-        <input type='submit' name='pwupdate' id='pwupdate' value='Update wachtwoord' />
+        <input type='submit' name='pwupdate' id='pwupdate' value='Update password' />
 
     </div>
     </form>

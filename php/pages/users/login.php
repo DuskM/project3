@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <h2>Login</h2>
 
-    <p>Vul je login gegevens in.</p>
+    <p>Fill in your login details.</p>
     <form action="index.php?pag=inloggen" method="post">
         <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
             <label>E-mail</label>
@@ -103,7 +103,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <span class="help-block"><?php echo $email_err; ?></span>
         </div>
         <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-            <label>Wachtwoord</label>
+            <label>Password</label>
             <br>
             <input type="password" name="password" style="background-color: rgba(20, 58, 119, 0.6)" class="form-control">
             <span class="help-block"><?php echo $password_err; ?></span>
@@ -111,8 +111,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Login">
         </div>
-        <p>Heb je geen account? <a href="index.php?pag=registreren">Registreren</a>.</p>
-        <p>Wachtwoord vergeten? <a href="index.php?pag=reset">Reset</a>.</p>
+        <p>Don't have an account yet? <a href="index.php?pag=registreren">Register</a>.</p>
+        <p>Forgot password? <a href="index.php?pag=reset">Reset</a>.</p>
     </form>
 
 

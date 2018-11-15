@@ -2,8 +2,8 @@
 require_once 'C:\xampp\htdocs\Forum\php\functions\config.php';
 ?>
 <div class="page-header">
-    <div class="profile">
-    <h3>Posts van:</h3>
+    <div class="posts">
+    <h3>Posts from:</h3>
 
 
         <?php echo htmlspecialchars($_SESSION['username']); ?> <br>
@@ -16,28 +16,28 @@ require_once 'C:\xampp\htdocs\Forum\php\functions\config.php';
 
             //echo("Error description: " . mysqli_error($link));
             while($row = mysqli_fetch_array($result)) { ?>
-        <form method='post' action='index.php?pag=replies'>
-            <div class="Content_1"> <?php
+                <form method='post' action='index.php?pag=replies'>
+                <div class="Content_1">
 
 
 
 
-                     echo $row["title"];
-                     echo $row["message"];
-                     echo $row["created_at"];
-                     echo $row["poster"];
-                     echo $row["thread_id"];
-                     echo $row["topic_id"]; ?>
+                    <?php echo $row["title"]; ?><br>
+                    <?php echo $row["message"]; ?><br>
+                    <?php echo $row["created_at"]; ?><br>
+                    <?php echo $row["poster"]; ?><br>
+                    <?php echo $row["thread_id"]; ?><br>
+                    <?php echo $row["topic_id"]; ?><br>
                     <input type='hidden' id='thread' name='thread' value='<?php echo $row["thread_id"]; ?>'/>
                     <input type='hidden' id='topic' name='topic' value='<?php echo $row["topic_id"]; ?>'/>
                     <input type='submit'/>
 
-            </div>
-        </form>
+                </div>
+                </form>
                 <?php };
 
             ?>
 
 
-        <p><a href="index.php?pag=uitloggen">Uitloggen</a></p>
+        <p><a href="index.php?pag=uitloggen">Log out</a></p>
     </div>

@@ -11,7 +11,7 @@ $username = "";
 $username_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty(trim($_POST['username']))){
-        $username_err = '<span style="color:red;">Voer een gebruikersnaam in.</span>';
+        $username_err = '<span style="color:red;">Fill in a username.</span>';
     }
     else{
         $sql = "UPDATE users SET username=? WHERE id ='{$_SESSION['id']}' ";
@@ -25,12 +25,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 /* store result */
                 mysqli_stmt_store_result($stmt);
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = '<span style="color:red;">Deze gebruikersnaam is al in gebruik.</span>';
+                    $username_err = '<span style="color:red;">This username is already in use.</span>';
                 } else{
                     $username = trim($_POST["username"]);
                 }
             } else{
-                echo '<span style="color:red;">Username is al in gebruik</span>';
+                echo '<span style="color:red;">Username Is already in use.</span>';
                 exit;
             }
         }
@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['username'] = $username;
                     ?>
                     <script type="text/javascript">
-                        alert('Username geupdate');
+                        alert('Username updated');
                         window.location.href='index.php?pag=profiel';
                     </script>
                     <?php
@@ -76,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src='../javascript/functiontopic.js'></script>
     <form class="infouser" action="index.php?pag=uupdate" method="post">
         <div class="form-group <br><?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-            <label>Gebruikersnaam</label>
+            <label>Username</label>
             <br>
             <input type="text" name="username" class="form-control" style="background-color: rgba(20, 58, 119, 0.6)">
             <span class="help-block"><br><?php echo $username_err; ?></span>

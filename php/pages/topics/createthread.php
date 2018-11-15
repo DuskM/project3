@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             if(mysqli_stmt_execute($stmt)){
                 ?>
                 <script type="text/javascript">
-                    alert('Thread gemaakt');
+                    alert('Thread created');
                     window.location.href='index.php?pag=threads';
                 </script>
                 <?php
@@ -61,15 +61,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div class="profile">
-    <h2>Maak nieuw thread aan.</h2>
+    <h2>Create new thread.</h2>
     <script src='../javascript/ckeditor/ckeditor.js'></script>
     <script src='../javascript/functiontopic.js'></script>
     <form class="infotext2" action="index.php?pag=createthread" method="post">
-        <label>Titel voor thread</label><br>
+        <label>Titel</label><br>
         <input type="text" id="title" name="title" class="form-control" style="background-color: rgba(20, 58, 119, 0.6)"><br>
-        <label><b>Vraag/discussie onderwerp.</b></label><br>
+        <label><b>Question/Discussion subject.</b></label><br>
         <textarea class='info' name='description' style='background-color: rgba(20, 58, 119, 0.6)' id='description' cols='45' rows='5'></textarea><br>
-        <input type='submit' name='maak' id='maak' value='Maak thread' />
+        <input type='submit' name='maak' id='maak' value='Create thread' />
     </form>
     <script>
         CKEDITOR.replace( 'description', {

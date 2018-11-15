@@ -1,4 +1,5 @@
 # project3
+Known Issues: Admin can't select threads.
 
 ─────────▄──────────────▄  
 ────────▌▒█───────────▄▀▒▌  

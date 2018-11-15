@@ -9,7 +9,7 @@ if(!isset($_SESSION['id']) || empty($_SESSION['id'])){
 require_once 'C:\xampp\htdocs\Forum\php\functions\config.php';
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST['info']))) {
-        $info_err = '<span style="color:red;">Er staat niks in het veld.</span>';
+        $info_err = '<span style="color:red;">The field is empty.</span>';
     } else {
         $info = trim($_POST['info']);
     }
@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['info'] = $info;
                 ?>
                 <script type="text/javascript">
-                    alert('Info geupdate');
+                    alert('Info updated');
                     window.location.href='index.php?pag=profiel';
                 </script>
                 <?php
@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <script src='../javascript/ckeditor/ckeditor.js'></script>
         <script src='../javascript/functiontopic.js'></script>
         <form class="infotext2" action="index.php?pag=iupdate" method="post">
-            <label><b>Info over jezelf</b></label><br>
+            <label><b>Info about you</b></label><br>
             <textarea class='info' name='info' style='background-color: rgba(20, 58, 119, 0.6)' id='info' cols='45' rows='5'></textarea><br>
             <input type='submit' name='update' id='update' value='Update info' />
         </form>

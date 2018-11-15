@@ -82,3 +82,31 @@ footer {
 
 }
 
+.profile {
+    height: 600px;
+    width: 80%;
+    padding-left: 5px;
+    background-color: rgba(125, 205, 136, 0.5);
+    border-radius: 5px;
+    border-style: ridge;
+    margin: auto;
+    overflow: hidden;
+
+}
+
+.birth {
+    margin-right: 47.5%;
+}
+
+
+.picture {
+    float: left;
+    width: 400px;
+    margin: auto;
+
+}
+
+.posts {
+    width: 80%;
+    margin: auto;
+}

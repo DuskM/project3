@@ -1,4 +1,5 @@
 <?php
+require_once 'C:\xampp\htdocs\Forum\php\functions\config.php';
 
 
 
@@ -23,10 +24,18 @@ elseif($_SESSION['user_type'] == "ADMIN") {
     }
 
     if (isset($_POST['thread'])) {
-    $id = $_POST['thread'];
-    $_SESSION['thread'] = $id;
-    echo $_SESSION['thread'];
+        $id = $_POST['thread'];
+        $_SESSION['thread'] = $id;
+        echo $_SESSION['thread'];
     }
+    ?><br><?php
+
+    if (isset($_POST['topic'])) {
+        $id1 = $_POST['topic'];
+        $_SESSION['topic'] = $id1;
+        echo $_SESSION['topic'];
+    }
+
 
     if (isset($_POST['message'])) {
 
@@ -40,7 +49,11 @@ elseif($_SESSION['user_type'] == "ADMIN") {
         echo "<script type='text/javascript'>alert('$message');</script>";
 
     }
-    echo "<h2>Kittens</h2>";
+    //echo("Error description: " . mysqli_error($link));
+    $title = "SELECT title FROM topics WHERE id = '{$_SESSION['topic']}' ";
+    $topictitle = $mysqli->query($title);
+    $rows = $topictitle->fetch_assoc();
+    echo "<h1>" . $rows['title'] . "</h1>";
 
     $sql = "SELECT * FROM replies WHERE thread_id = '{$_SESSION['thread']}'";
 
@@ -53,7 +66,7 @@ elseif($_SESSION['user_type'] == "ADMIN") {
         echo $row['description']."<br>";
         echo '------------------------ <br>';
     } ?>
-    <form method="post" action="index.php?pag=forum">
+    <form method="post" action="index.php?pag=replies">
     <?php while ($row = $result->fetch_assoc()) {
         echo  $row['username'] . '<br>';
         echo $row['date'] . '<br>';
@@ -67,7 +80,7 @@ elseif($_SESSION['user_type'] == "ADMIN") {
 ------------------------------------------
 <script src='//cdn.ckeditor.com/4.10.0/standard/ckeditor.js'></script>
 <script src='../javascript/functiontopic.js'></script>
-<form method='post' action='index.php?pag=forum'>
+<form method='post' action='index.php?pag=replies'>
     <p>Message: <br>
         <label for='message'></label>
         <textarea name='message' style='background-color: rgba(20, 58, 119, 0.6)' id='message' cols='45' rows='5'></textarea>
@@ -77,7 +90,7 @@ elseif($_SESSION['user_type'] == "ADMIN") {
         </script>
     </p>
     <p>
-        <input type='submit' name='submit7' id='submit7' value='Post message' />
+        <input type='submit' name='submit7' id='submit7' value='Reply' />
     </p>
     <input type='hidden' id='pag7' name='pag7' value='forum7'/>
 </form>
@@ -122,7 +135,11 @@ else {
         echo "<script type='text/javascript'>alert('$message');</script>";
 
     }
-    echo "<h2>Kittens</h2>";
+    //echo("Error description: " . mysqli_error($link));
+    $title = "SELECT title FROM topics WHERE id = '{$_SESSION['topic']}' ";
+    $topictitle = $mysqli->query($title);
+    $rows = $topictitle->fetch_assoc();
+    echo "<h1>" . $rows['title'] . "</h1>";
 
     $sql = "SELECT * FROM replies WHERE thread_id = '{$_SESSION['thread']}'";
 
@@ -156,7 +173,7 @@ else {
         </script>
     </p>
     <p>
-        <input type='submit' name='submit7' id='submit7' value='Post message' />
+        <input type='submit' name='submit7' id='submit7' value='Reply' />
     </p>
     <input type='hidden' id='pag7' name='pag7' value='forum7'/>
 </form>

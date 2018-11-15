@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['image'] = $TargetPath;
                 ?>
                 <script type="text/javascript">
-                    alert('Profiel foto geupdate');
+                    alert('Profile picture updated');
                     window.location.href = 'index.php?pag=profiel';
                 </script>
                 <?php
@@ -55,8 +55,8 @@ mysqli_close($link);
 
 ?>
 <form action="index.php?pag=imupdate" method="post" enctype="multipart/form-data">
-<p>Upload jouw profiel foto</p>
-<p>Afbeelding wordt verkleind naar 250x250 pixels</p>
+<p>Upload your profile picture</p>
+<p>Image will be resized to 250x250 pixels</p>
 <div class="form-group <?php echo (!empty($image_err)) ? 'has-error' : ''; ?>">
     <input type="file" id="image" name="image" accept="image/x-png,image/gif,image/jpeg" class="form-control" onchange="updateList()">
     <label class="custom-file-label" id="imagename"  for="image"></label>
@@ -72,7 +72,7 @@ mysqli_close($link);
     };
 </script>
     <div>
-        <input type='submit' name='imupdate' id='imupdate' value='Update profiel foto' />
+        <input type='submit' name='imupdate' id='imupdate' value='Update picture' />
     </div>
 </form>
 

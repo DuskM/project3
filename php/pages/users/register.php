@@ -23,12 +23,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 /* store result */
                 mysqli_stmt_store_result($stmt);
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $email_err = '<span style="color:red;">Dit Email adres is al in gebruik.</span>';
+                    $email_err = '<span style="color:red;">This email address is already in use.</span>';
                 } else{
                     $email = trim($_POST["email"]);
                 }
             } else{
-                echo '<span style="color:red;">Er is iets fout gegaan.</span>';
+                echo '<span style="color:red;">Something went wrong.</span>';
             }
         }
         // connectie sluiten
@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // username checken
     if(empty(trim($_POST['username']))){
-        $username_err = '<span style="color:red;">Voer een gebruikersnaam in.</span>';
+        $username_err = '<span style="color:red;">Enter a username.</span>';
     }
     else{
         $sql = "SELECT id FROM users WHERE username = ?";
@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 /* store result */
                 mysqli_stmt_store_result($stmt);
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = '<span style="color:red;">Deze gebruikersnaam is al in gebruik.</span>';
+                    $username_err = '<span style="color:red;">This username already exists.</span>';
                 } else{
                     $username = trim($_POST["username"]);
                 }
@@ -65,19 +65,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // wachtwoord checken
     if(empty(trim($_POST['password']))){
-        $password_err = '<span style="color:red;">Voer een wachtwoord in.</span>';
+        $password_err = '<span style="color:red;">Enter a valid password.</span>';
     } elseif(strlen(trim($_POST['password'])) < 6){
-        $password_err = '<span style="color:red;">Wachtwoord moet minstens 6 tekens hebben.</span>';
+        $password_err = '<span style="color:red;">Password needs at least 6 characters.</span>';
     } else{
         $password = trim($_POST['password']);
     }
     // wachtwoord checken
     if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = '<span style="color:red;">Bevestig het wachtwoord.</span>';
+        $confirm_password_err = '<span style="color:red;">Confirm password.</span>';
     } else{
         $confirm_password = trim($_POST['confirm_password']);
         if($password != $confirm_password){
-            $confirm_password_err = '<span style="color:red;">Wachtwoord komt niet overeen.</span>';
+            $confirm_password_err = '<span style="color:red;">Passwords do not match.</span>';
         }
     }
 
@@ -112,7 +112,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             if(mysqli_stmt_execute($stmt)){
                 // Naar login pagina sturen
-                header("location: index.php?pag=5");
+                ?><script type="text/javascript">
+                    alert('Account created, you can now login.');
+                    window.location.href='index.php?pag=inloggen';
+                </script><?php
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -135,8 +138,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <div class="wrapper">
     <script src="../javascript/functions.js"></script>
-    <h2>Registreren</h2>
-    <p>Vul dit formulier in om te registreren.</p>
+    <h2>Register</h2>
+    <p>Full in these details to register.</p>
     <form action="index.php?pag=registreren" method="post" enctype="multipart/form-data">
 
         <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
@@ -146,29 +149,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <span class="help-block"><br><?php echo $email_err; ?></span></div>
 
         <div class="form-group <br><?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-            <label>Gebruikersnaam</label>
+            <label>Username</label>
             <br>
             <input type="text" name="username" class="form-control" style="background-color: rgba(20, 58, 119, 0.6)" value="<?php echo $username; ?>">
             <span class="help-block"><br><?php echo $username_err; ?></span>
         </div>
 
         <div class="form-group <br><?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-            <label>Wachtwoord</label>
+            <label>Password</label>
             <br>
             <input type="password" name="password" class="form-control" style="background-color: rgba(20, 58, 119, 0.6)" value="<?php echo $password; ?>">
             <span class="help-block"><br><?php echo $password_err; ?></span>
         </div>
 
         <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-            <label>Bevestig wachtwoord</label>
+            <label>Confirm password</label>
             <br>
             <input type="password" name="confirm_password" class="form-control" style="background-color: rgba(20, 58, 119, 0.6)" value="<?php echo $confirm_password; ?>">
             <span class="help-block"><br><?php echo $confirm_password_err; ?></span>
         </div>
 
 
-        <p>Upload jouw profiel foto</p>
-        <p>Afbeelding wordt verkleind naar 250x250 pixels</p>
+        <p>Upload your profile picture</p>
+        <p>Image will be resized to 250x250 pixels</p>
         <div class="form-group <?php echo (!empty($image_err)) ? 'has-error' : ''; ?>">
             <input type="file" id="image" name="image" accept="image/x-png,image/gif,image/jpeg" class="form-control" onchange="updateList()">
             <label class="custom-file-label" id="imagename"  for="image"></label>
@@ -190,10 +193,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Verzend">
+            <input type="submit" class="btn btn-primary" value="Send">
 
         </div>
-        <p>Heb je al een account? <a href="index.php?pag=inloggen">Login hier</a>.</p>
+        <p>Already have an account? <a href="index.php?pag=inloggen">Login here</a>.</p>
     </form>
 
 </div>

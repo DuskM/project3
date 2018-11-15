@@ -19,7 +19,7 @@ unset($_SESSION['thread']);
             <br>
 
             <input type='hidden' id='topic' name='topic' value='<?php echo $row["id"]; ?>'/>
-            <input type='submit'/>
+            <input type='submit' value='see threads'/>
 
     </div>
 </form>

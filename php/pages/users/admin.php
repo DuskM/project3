@@ -16,7 +16,7 @@ if($_SESSION['user_type'] == "ADMIN") {
         for($i=0;$i<count($checkbox);$i++){
             $del_id = $checkbox[$i];
             mysqli_query($link,"DELETE FROM users WHERE id='".$del_id."'");
-            $message = "Data deleted successfully !";
+            $message = "User deleted successfully !";
         }
     }
     $result = mysqli_query($link,"SELECT id, username, email, birth, created_at FROM users");

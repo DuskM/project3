@@ -14,7 +14,7 @@ if($_SESSION['user_type'] == "ADMIN") {
         for($i=0;$i<count($checkbox);$i++){
             $del_id = $checkbox[$i];
             mysqli_query($link,"DELETE FROM threads WHERE id='".$del_id."'");
-            echo "<script type='text/javascript'>alert('Thread verwijderd')</script>";
+            echo "<script type='text/javascript'>alert('Thread Removed.')</script>";
         }
     }
     $result = mysqli_query($link, "SELECT id, user_id, created_at, title, description FROM threads WHERE topic_id = '{$_SESSION['topic']}' ");
@@ -87,4 +87,4 @@ if($_SESSION['user_type'] == "ADMIN") {
 
 
 
-<a href="index.php?pag=createthread">Maak nieuwe thread</a>
+<a href="index.php?pag=createthread">Create new thread</a>

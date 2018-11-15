@@ -11,7 +11,7 @@ $email = "";
 $email_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty(trim($_POST['email']))){
-        $email_err = '<span style="color:red;">Voer een gebruikersnaam in.</span>';
+        $email_err = '<span style="color:red;">Fill in an email address.</span>';
     }
     else{
         $sql = "UPDATE users SET email=? WHERE id ='{$_SESSION['id']}' ";
@@ -25,12 +25,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 /* store result */
                 mysqli_stmt_store_result($stmt);
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $email_err = '<span style="color:red;">Dit email adres is al in gebruik.</span>';
+                    $email_err = '<span style="color:red;">This Email address already in use.</span>';
                 } else{
                     $email = trim($_POST["email"]);
                 }
             } else{
-                echo '<span style="color:red;">Email adres is al in gebruik</span>';
+                echo '<span style="color:red;">This Email address already in use.</span>';
                 exit;
             }
         }
@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['email'] = $email;
                     ?>
                     <script type="text/javascript">
-                        alert('Email adres geupdate');
+                        alert('Email address updated');
                         window.location.href='index.php?pag=profiel';
                     </script>
                     <?php
@@ -76,12 +76,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src='../javascript/functiontopic.js'></script>
     <form class="infouser" action="index.php?pag=eupdate" method="post">
         <div class="form-group <br><?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-            <label>Email adres</label>
+            <label>Email address</label>
             <br>
             <input type="text" name="email" class="form-control" style="background-color: rgba(20, 58, 119, 0.6)">
             <span class="help-block"><br><?php echo $email_err; ?></span>
         </div>
-            <input type='submit' name='eupdate' id='eupdate' value='Update email adres' />
+            <input type='submit' name='eupdate' id='eupdate' value='Update email' />
         </div>
     </form>
 </div>

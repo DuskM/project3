@@ -18,7 +18,7 @@ elseif($_SESSION['user_type'] == "ADMIN") { ?>
       <div class='idk'>
         ADMIN, <?php echo htmlspecialchars($_SESSION['username']); ?> <br><br>
 
-          Welkom op dit forum.
+          Welcome.
           <br><a href="index.php?pag=admin">Secret Admin page</a>
 
 
@@ -30,7 +30,7 @@ elseif($_SESSION['user_type'] == "ADMIN") { ?>
       <div class='idk'>
         Hi, <?php echo htmlspecialchars($_SESSION['username']); ?> <br><br>
 
-          Welkom op dit forum.
+          Welcome.
 
 
     </div>
@@ -48,80 +48,35 @@ elseif($_SESSION['user_type'] == "ADMIN") { ?>
 
         <?php
         require_once 'C:\xampp\htdocs\Forum\php\functions\config.php';
-        ?>
 
 
-<div class="forum_irl">
-    <div class="Content_1">
-        <a href="index.php?pag=forum" class="fill-div">
-            Title: Tactics <br>
-            Unit builds, map strategies, etc.<br><br>
-            Last post:
-            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
-            $result = mysqli_query($link, $query);
-            $row = mysqli_fetch_array($result);
-            echo $row['username'] . "<br>" . $row['date'];
-            ?></a>
-    </div>
-    <div class="Content_1">
-        <a href="index.php?pag=forum" class="fill-div">
-            Title: Player versus Player <br>
-            Discussions about Aether Raids, Arena and Arena Assault.<br><br>
-            Last post:
-            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
-            $result = mysqli_query($link, $query);
-            $row = mysqli_fetch_array($result);
-            echo $row['username'] . "<br>" . $row['date'];
-            ?></a>
-    </div>
-    <div class="Content_1">
-        <a href="../index.php?pag=forum" class="fill-div">
-            Title: Multimaps <br>
-            Discussions about Chain Challenges, Squad Assauult and Blessed Garden.<br><br>
-            Last post:
-            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
-            $result = mysqli_query($link, $query);
-            $row = mysqli_fetch_array($result);
-            echo $row['username'] . "<br>" . $row['date'];
-            ?></a>
-    </div>
-    <div class="Content_1">
-        <a href="../index.php?pag=forum" class="fill-div">
-            Title: Events <br>
-            Discussions about Voting Gaunlet, Tap Battle, Tempest Trails Bound and Grand Hero Battles and Bond Forging.<br><br>
-            Last post:
-            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
-            $result = mysqli_query($link, $query);
-            $row = mysqli_fetch_array($result);
-            echo $row['username'] . "<br>" . $row['date'];
-            ?></a>
-    </div>
-    <div class="Content_1">
-        <a href="../index.php?pag=forum" class="fill-div">
-            Title: Story <br>
-            Story progression discussion [SPOILERS].<br><br>
-            Last post:
-            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
-            $result = mysqli_query($link, $query);
-            $row = mysqli_fetch_array($result);
-            echo $row['username'] . "<br>" . $row['date'];
-            ?></a>
-    </div>
-    <div class="Content_1">
-        <a href="../index.php?pag=forum" class="fill-div">
-            Title: Salt <br>
-            Daily salt mining.<br><br>
-            Last post:
-            <?php $query="SELECT username,date FROM replies ORDER BY date DESC";
-            $result = mysqli_query($link, $query);
-            $row = mysqli_fetch_array($result);
-            echo $row['username'] . "<br>" . $row['date'];
-            ?></a>
-    </div>
 
-</div>
+$result = mysqli_query($link, "SELECT replies.id, username, replies.user_id, created_at, title, description, poster, message, thread_id, topic_id FROM replies INNER JOIN threads ON replies.thread_id = threads.id ORDER BY date DESC LIMIT 5");
+        //echo("Error description: " . mysqli_error($link));
+        echo "Recent posts";
+while ($row = mysqli_fetch_array($result)) {
+unset($_SESSION['thread']);
+unset($_SESSION['topic']);
+?>
+<form method='post' action='index.php?pag=replies'>
+        <div class="Content_1">
+        <?php $id = $row["id"]; ?>
 
 
+
+        <?php echo "Last post by: " . $row["username"]; ?><br>
+        <?php echo "In: " . $row["title"]; ?><br>
+        <?php echo $row["description"]; ?><br>
+        <?php echo "Reply: " . $row["message"]; ?><br>
+
+        <input type='hidden' id='thread' name='thread' value='<?php echo $row["thread_id"]; ?>'/>
+        <input type='hidden' id='topic' name='topic' value='<?php echo $row["topic_id"]; ?>'/>
+        <input type='submit' value='View'/>
+
+    </div>
+</form>
+<?php
+    }; ?>
         <br>
         <br>
 
