@@ -1,14 +1,9 @@
-
-
 <?php
+// At the profile page the user can add additional information and update their info if they desire so.
+// All updates will redirect to a different page where the user can update the desired info.
+// This option is chosen to make it easier to update without required fields and have a huge page with info
+// while only needing to update a small detail.
 
-
-// Initialize the session
-
-
-
-
-// If session variable is not set it will redirect to login page
 
 if(!isset($_SESSION['id']) || empty($_SESSION['id'])){
 
@@ -29,9 +24,7 @@ if(empty($birth_err)){
         // Prepare an insert statement
         $sql = "UPDATE users SET birth=? WHERE id ='{$_SESSION['id']}' ";
         if($stmt = mysqli_prepare($link, $sql)){
-            // Variabelen binden
             mysqli_stmt_bind_param($stmt, "s", $param_birth);
-            // Set parameters
             $param_birth = $birth;
 
 
@@ -52,7 +45,6 @@ if(empty($birth_err)){
 
 
     }
-    // connectie sluiten
     mysqli_close($link);
 }
 
@@ -91,6 +83,7 @@ if(empty($birth_err)){
     ?>
     </div>
     <p><a href="index.php?pag=posts">Posts</a></p>
+    <p><a href="index.php?pag=cthreads">Threads</a></p>
     <p><a href="index.php?pag=uitloggen">Log out</a></p>
 <div class="birth">
     <?php if(empty($_SESSION['birth'])){ ?>

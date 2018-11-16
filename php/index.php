@@ -77,6 +77,9 @@ switch ($paggepost){
     case "createthread";
         include ("pages/topics/createthread.php");
         break;
+    case "cthreads";
+        include ("pages/users/threadoverview.php");
+        break;
     case "session";
         include ("sessions.php");
         break;
@@ -131,6 +134,9 @@ switch ($paggekozen){
         break;
     case "createthread";
         include ("pages/topics/createthread.php");
+        break;
+    case "cthreads";
+        include ("pages/users/threadoverview.php");
         break;
     case "session";
         include ("sessions.php");

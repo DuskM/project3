@@ -3,20 +3,20 @@ require_once 'C:\xampp\htdocs\Forum\php\functions\config.php';
 ?>
 <div class="page-header">
     <div class="posts">
-    <h3>Posts from:</h3>
+        <h3>Threads from:</h3>
 
 
         <?php echo htmlspecialchars($_SESSION['username']); ?> <br>
 
-    <?php $result = mysqli_query($link,"SELECT replies.id, message, date, username, created_at, thread_id, title, poster, topic_id FROM replies INNER JOIN threads ON replies.thread_id = threads.id WHERE replies.user_id = '{$_SESSION['id']}' ");?>
+        <?php $result = mysqli_query($link,"SELECT threads.id, message, date, username, created_at, thread_id, title, poster, topic_id FROM replies INNER JOIN threads ON replies.thread_id = threads.id WHERE threads.user_id = '{$_SESSION['id']}' ");?>
 
-            <?php
-            unset($_SESSION['thread']);
-            unset($_SESSION['topic']);
+        <?php
+        unset($_SESSION['thread']);
+        unset($_SESSION['topic']);
 
-            //echo("Error description: " . mysqli_error($link));
-            while($row = mysqli_fetch_array($result)) { ?>
-                <form method='post' action='index.php?pag=replies'>
+        //echo("Error description: " . mysqli_error($link));
+        while($row = mysqli_fetch_array($result)) { ?>
+            <form method='post' action='index.php?pag=replies'>
                 <div class="Posts_1">
 
 
@@ -33,10 +33,10 @@ require_once 'C:\xampp\htdocs\Forum\php\functions\config.php';
                     <input type='submit'/>
 
                 </div>
-                </form>
-                <?php };
+            </form>
+        <?php };
 
-            ?>
+        ?>
 
 
         <p><a href="index.php?pag=uitloggen">Log out</a></p>

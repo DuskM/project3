@@ -15,17 +15,16 @@
 
 <div class="page-header">
 
-    <h3>U bent uitgelogt.</h3>
+    <h3>You are logged out.</h3>
 
 </div>
 
-<p><a href="index.php?pag=inloggen" class="btn btn-danger">Log in</a></p>
+<p><a href="index.php?pag=inloggen" class="btn btn-danger">Login</a></p>
 
     <?php
-    // Initialize the session
-    // Unset all of the session variables
+
     $_SESSION = array();
-    // Destroy the session.
+
     session_destroy();
 
     exit;

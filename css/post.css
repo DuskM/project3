@@ -5,6 +5,7 @@
   border-radius: 5px;
   border-style: ridge;
   margin: auto;
+  padding: 10px;
 
 }
 
@@ -20,4 +21,15 @@ a.fill-Content_1 {
   height: 750px;
   background-color: rgba(83, 139, 230, 0.6);
   border-radius: 5px;
+}
+
+.Posts_1 {
+    height: 200px;
+    width: 97%;
+    background-color: rgba(125, 205, 136, 0.5);
+    border-radius: 5px;
+    border-style: ridge;
+    margin: auto;
+    padding: 10px;
+
 }

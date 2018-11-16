@@ -4,10 +4,10 @@
 	border: none;
 	display: inline-block;
 	cursor: pointer;
-	color: #ffffff;
+	color: black;
 	font-size: 15px;
 	padding: 10px 10px;
-	text-shadow: 0px 1px 0px #b23e35;
+	/* text-shadow: 0px 1px 0px #b23e35; */
 	width: 12.3%;
   height: 20px;
 }

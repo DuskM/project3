@@ -6,6 +6,8 @@ define('DB_NAME', 'demo');
 
 
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$results_per_page = 10;
+
 
 // Check connection
 if($link === false){

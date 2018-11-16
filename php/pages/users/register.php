@@ -1,24 +1,20 @@
 <?php
+// Email and username have been chosen as a unique variable to prevent impersonation and using the same email address for different accounts.
+// Only the important parts of a user account are required here, this is to make it quickly functional and avoid complexities.
+// Profile picture is asked here because personally I feel it adds personality to users and they can use images to identify themselves.
 
-// Include functions
 require_once 'C:\xampp\htdocs\Forum\php\functions\config.php';
 $username = $password = $confirm_password = $email = $image = "";
 $username_err = $password_err = $confirm_password_err = $email_err = $image_err = "";
 
-// checks
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // email checken.
     if(empty(trim($_POST["email"]))){
         $email_err = '<span style="color:red;">Voer een email adress in.</span>';
     } else{
-        // Select statement
         $sql = "SELECT id FROM users WHERE email = ?";
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_email);
-            // Set parameters
             $param_email = trim($_POST["email"]);
-            // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 /* store result */
                 mysqli_stmt_store_result($stmt);
@@ -31,24 +27,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo '<span style="color:red;">Something went wrong.</span>';
             }
         }
-        // connectie sluiten
         mysqli_stmt_close($stmt);
     }
 
-    // username checken
+
     if(empty(trim($_POST['username']))){
         $username_err = '<span style="color:red;">Enter a username.</span>';
     }
     else{
         $sql = "SELECT id FROM users WHERE username = ?";
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
-            // Set parameters
             $param_username = trim($_POST["username"]);
-            // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                /* store result */
                 mysqli_stmt_store_result($stmt);
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     $username_err = '<span style="color:red;">This username already exists.</span>';
@@ -59,11 +50,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo '<span style="color:red;">Er is iets fout gegaan.</span>';
             }
         }
-        // connectie sluiten
+
         mysqli_stmt_close($stmt);
     }
 
-    // wachtwoord checken
+
     if(empty(trim($_POST['password']))){
         $password_err = '<span style="color:red;">Enter a valid password.</span>';
     } elseif(strlen(trim($_POST['password'])) < 6){
@@ -71,7 +62,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST['password']);
     }
-    // wachtwoord checken
     if(empty(trim($_POST["confirm_password"]))){
         $confirm_password_err = '<span style="color:red;">Confirm password.</span>';
     } else{
@@ -96,14 +86,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 
-    // Check input
+
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($email_err) && empty($image_err)){
         // Prepare an insert statement
         $sql = "INSERT INTO users (email, username, password, image) VALUES (?, ?, ?, ?)";
         if($stmt = mysqli_prepare($link, $sql)){
-            // Variabelen binden
             mysqli_stmt_bind_param($stmt, "ssss", $param_email, $param_username, $param_password, $param_image);
-            // Set parameters
             $param_email = $email;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             $param_username = $username;
@@ -111,7 +99,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
             if(mysqli_stmt_execute($stmt)){
-                // Naar login pagina sturen
                 ?><script type="text/javascript">
                     alert('Account created, you can now login.');
                     window.location.href='index.php?pag=inloggen';
@@ -124,7 +111,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
     }
-    // connectie sluiten
     mysqli_close($link);
 }
 ?>

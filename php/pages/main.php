@@ -1,14 +1,4 @@
 <?php
-
-
-// Initialize the session
-
-
-
-
-
-// If session variable is not set it will redirect to login page
-
 if(!isset($_SESSION['id']) || empty($_SESSION['id'])){ ?>
 
     <p><a href='index.php?pag=inloggen' class='btn btn-danger'>Inloggen</a></p>
@@ -37,17 +27,7 @@ elseif($_SESSION['user_type'] == "ADMIN") { ?>
     </div> <?php
 };
 
-?>
-
-
-
-
-
-
-
-
-        <?php
-        require_once 'C:\xampp\htdocs\Forum\php\functions\config.php';
+require_once 'C:\xampp\htdocs\Forum\php\functions\config.php';
 
 
 

@@ -1,4 +1,5 @@
 <?php
+//file that echoes all session data. This is used to check possible problems with session data not changing.
 require_once 'C:\xampp\htdocs\Forum\php\functions\config.php';
 
 echo $_SESSION['email'] . "<br>";

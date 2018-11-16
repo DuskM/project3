@@ -22,28 +22,28 @@ if($_SESSION['user_type'] == "ADMIN") {
     while ($row = mysqli_fetch_array($result)) {
         unset($_SESSION['thread']);
         ?>
-        <form method='post' action='index.php?pag=threads'>
+        <form method='post' id="threads" action='index.php?pag=threads'></form>
         <form method='post' action='index.php?pag=replies'>
-            <div class="Content_1">
+            <div class="Posts_1">
+                <?php $id = $row["id"]; ?>
 
 
 
-
-                <?php echo $row["id"]; ?>
-                <?php echo $row["user_id"]; ?>
+                <?php //echo $row["id"]; ?>
+                <?php //echo $row["user_id"]; ?>
                 <?php echo $row["created_at"]; ?>
                 <?php echo $row["title"]; ?><br>
                 <?php echo $row["description"]; ?>
-                <input type="checkbox" id="checkItem" name="checkt[]" value="<?php echo $row["id"]; ?>">
+                <input type="checkbox" id="checkItem" name="checkt[]" form="threads" value="<?php echo $row["id"]; ?>">
 
                 <input type='hidden' id='thread' name='thread' value='<?php echo $row["id"]; ?>'/>
-                <input type='submit'/>
+                <input type='submit' value="View"/>
 
             </div>
-            <button type="submit" class="btn btn-success" name="savet">DELETE</button>
+            <button type="submit" class="btn btn-success" form="threads" name="savet">Delete</button>
         </form>
 
-        </form>
+
         <?php
 
     }
@@ -64,8 +64,8 @@ if($_SESSION['user_type'] == "ADMIN") {
 
 
 
-                <?php echo $row["id"]; ?>
-                <?php echo $row["user_id"]; ?>
+                <?php //echo $row["id"]; ?>
+                <?php //echo $row["user_id"]; ?>
                 <?php echo $row["created_at"]; ?>
                 <?php echo $row["title"]; ?><br>
                 <?php echo $row["description"]; ?>
